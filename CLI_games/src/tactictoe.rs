@@ -1,15 +1,15 @@
 use crate::create_vec_map::VecMap;
 use crate::input::input;
-use std::collections::{BTreeMap, HashMap, HashSet};
+use std::collections::{HashMap, HashSet};
 pub struct Tactictoe{
     map:VecMap,
-    coordinate_have_symbol:BTreeMap<String,Vec<(usize,usize)>>,
+    coordinate_have_symbol:HashMap<String,Vec<(usize,usize)>>,
 }
 impl Default for Tactictoe{
     fn default() -> Self {
         Tactictoe{
             map:VecMap::default(),
-            coordinate_have_symbol:BTreeMap::new()
+            coordinate_have_symbol:HashMap::new()
         }
         
     }
@@ -23,9 +23,8 @@ impl Tactictoe{
         }
     }
     pub fn put_bot_symbol(&mut self,coordinate:&HashMap<usize,Vec<usize>>,symbol:&str)->(usize,usize){
-        let _ran = rand::rng();
         loop{
-            let key = rand::random_range(1..(self.map.map.len()*self.map.map[0].len()));
+            let key = rand::random_range(1..=(self.map.map.len()*self.map.map[0].len()));
             if let Some(coor) = coordinate.get(&key){
                 if self.map.map[coor[0]][coor[1]] != " "{continue;}
                 else{self.map.map[coor[0]][coor[1]] = symbol.to_string();return (coor[0],coor[1])}
@@ -38,27 +37,37 @@ impl Tactictoe{
         }
         false
     }
+
     pub fn win(&self,symbol:&str)->bool{
         let val: &Vec<(usize, usize)> = match self.coordinate_have_symbol.get(symbol){
             Some(val) if val.len()>2=>val,
             _=>return false
         };
-        let mut sort_val: Vec<(usize, usize)> = val.clone();
-        sort_val.sort_unstable();
-        let sort_val_set:HashSet<_> = sort_val.iter().copied().collect();
-        sort_val.windows(3)
-        .any(|v|
-            (v[0].0 == v[2].0 && v[2].1-v[0].1 == 2)
-            || (sort_val_set.contains(&(v[0].0+1,v[0].1)) 
-                && sort_val_set.contains(&(v[0].0+2,v[0].1)))
-            || (v[0].0+2 < self.map.map.len() 
-                && v[0].1+2 < self.map.map.len() 
-                && sort_val_set.contains(&(v[0].0+1,v[0].1+1)) 
-                && sort_val_set.contains(&(v[0].0+2,v[0].1+2)))
-            || (v[0].0+2 < self.map.map.len() && v[0].1>1 
-                && sort_val_set.contains(&(v[0].0+1,v[0].1-1)) 
-                && sort_val_set.contains(&(v[0].0+2,v[0].1-2)))
-        )
+        let val_set :HashSet<_> = val.iter().copied().collect();
+        let win_length = 3;
+        let directions = [(1,0),(0,1),(1,1),(1,-1)];
+        for &(x,y) in &val_set{
+            for &(dx,dy) in &directions{
+                let mut zx = x as i32;
+                let mut zy = y as i32;
+                let mut total_move = 1;
+                while total_move < win_length{
+                    zx += dx;
+                    zy +=dy;
+                    if zx  <0 || zy <0{
+                        break
+                    }
+                    if val_set.contains(&(zx as usize,zy as usize)){
+                        total_move +=1;
+                        if total_move == win_length{
+                            return true
+                        }
+                    }
+                    else{break;}
+                }
+            }
+        }
+        false
     }
     pub fn show_map(&self,text:&str){
         print!("\x1B[2J\x1B[2H");
@@ -66,7 +75,7 @@ impl Tactictoe{
         println!("{}",text);
     }
     pub fn set_data(&mut self)->String{
-        self.map.setup_map(24,24);
+        self.map.setup_map(3,3);
         if !self.map.can_setup{
             return "stop".to_string();
         }
@@ -155,7 +164,7 @@ impl Tactictoe{
                 self.show_map("You win!",);
                 return
             }
-            if !self.is_still_space(){println!("draw");return}
+            if !self.is_still_space(){self.show_map("draw");return}
             let bot_puted_place = self.put_bot_symbol(&coordinate,&bot_symbol.to_string());
             self.coordinate_have_symbol.entry(bot_symbol.clone()).or_default().push(bot_puted_place);
             if self.win(&bot_symbol){
