@@ -1,3 +1,4 @@
 # CLI_games
 day3 learning rust and try to make different CLI games
-day 4-7 I think? I optimize the login about checking win.
+
+I think it was around day 4–7 learning rust. I optimized the login process related to win checking in version 1.0.
