@@ -1,6 +1,7 @@
 mod create_vec_map;
 mod tactictoe;
 mod input;
+mod two_o_four_eight;
 //use input::input;
 use tactictoe::Tactictoe;
 

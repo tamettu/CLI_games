@@ -1,0 +1,11 @@
+/home/uwuarch/Desktop/MyProgram/CLI_games/CLI_games/target/debug/deps/rand_core-f3f336c7b4fa6bba.d: /home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/lib.rs /home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/block.rs /home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/impls.rs /home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/le.rs /home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/os.rs
+
+/home/uwuarch/Desktop/MyProgram/CLI_games/CLI_games/target/debug/deps/librand_core-f3f336c7b4fa6bba.rlib: /home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/lib.rs /home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/block.rs /home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/impls.rs /home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/le.rs /home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/os.rs
+
+/home/uwuarch/Desktop/MyProgram/CLI_games/CLI_games/target/debug/deps/librand_core-f3f336c7b4fa6bba.rmeta: /home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/lib.rs /home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/block.rs /home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/impls.rs /home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/le.rs /home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/os.rs
+
+/home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/lib.rs:
+/home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/block.rs:
+/home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/impls.rs:
+/home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/le.rs:
+/home/uwuarch/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/os.rs:
